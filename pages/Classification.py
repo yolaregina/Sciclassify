@@ -16,15 +16,23 @@ from nltk.stem import PorterStemmer
 # =====================================================================
 @st.cache_resource
 def download_nltk_resources():
-    try:
-        nltk.data.find('tokenizers/punkt')
-    except LookupError:
-        nltk.download('punkt', quiet=True)
+    resources = [
+        'punkt',
+        'punkt_tab',
+        'stopwords'
+    ]
 
-    try:
-        nltk.data.find('corpora/stopwords')
-    except LookupError:
-        nltk.download('stopwords', quiet=True)
+    for resource in resources:
+        try:
+            if resource == 'punkt':
+                nltk.data.find('tokenizers/punkt')
+            elif resource == 'punkt_tab':
+                nltk.data.find('tokenizers/punkt_tab')
+            elif resource == 'stopwords':
+                nltk.data.find('corpora/stopwords')
+
+        except LookupError:
+            nltk.download(resource, quiet=True)
 
 download_nltk_resources()
 
