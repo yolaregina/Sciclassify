@@ -5,6 +5,3 @@ scikit-learn==1.3.0
 nltk
 pdfplumber
 plotly
-matplotlib
-seaborn
-wordcloud
