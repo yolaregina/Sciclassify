@@ -6,7 +6,6 @@ import re
 import nltk
 import os
 import pandas as pd
-import sklearn
 from datetime import datetime
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
@@ -122,7 +121,6 @@ st.set_page_config(
     page_icon="🔬",
     layout="wide"
 )
-st.write("Versi sklearn:", sklearn.__version__)
 
 st.markdown("""
     <style>
