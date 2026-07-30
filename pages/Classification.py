@@ -6,7 +6,7 @@ import re
 import nltk
 import os
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
@@ -47,7 +47,7 @@ def save_to_csv(text_content, category_result):
         summary_text = summary_text[:150] + "..."
         
     new_data = {
-        "Tanggal/Waktu": [datetime.now().strftime("%Y-%m-%d %H:%M:%S")],
+        "Tanggal/Waktu": [(datetime.now(timezone.utc) + timedelta(hours=7)).strftime("%Y-%m-%d %H:%M:%S")],
         "Isi Dokumen / Abstrak": [summary_text],
         "Hasil Kategori": [category_result.upper()]
     }
